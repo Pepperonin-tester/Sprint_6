@@ -1,5 +1,4 @@
 import allure
-import time
 from locators.main_page_locators import MainPageLocators
 from pages.base_page import BasePage
 
@@ -15,9 +14,7 @@ class MainPage(BasePage):
 
     def scroll_to_question(self, locator):
         with allure.step('Проскроллить до вопроса'):
-            element = self.find_element(locator)
-            self.driver.execute_script("arguments[0].scrollIntoView();", element)
-            time.sleep(1)
+            self.scroll_to_element(locator)
 
     def click_question_button(self, locator):
         with allure.step('Кликнуть на вопрос'):
